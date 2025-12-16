@@ -20,14 +20,14 @@ jobs:
         run: docker login --username ${{ secrets.DOCKER_USERNAME }} --password ${{ secrets.DOCKER_TOKEN }}
 
       - name: Build Docker image
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/html-image .
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/htmlImage .
 
       - name: Push Docker image to Docker Hub
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/html-image
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/htmlImage
 
       - name: Run Docker container
-        run: docker run -d --name my_container -p 80:80 ${{ secrets.DOCKER_USERNAME }}/html-image
+        run: docker run -d --name my_container -p 80:80 ${{ secrets.DOCKER_USERNAME }}/htmlImage
 
       - name: Pull Docker image (optional)
-        run: docker pull ${{ secrets.DOCKER_USERNAME }}/html-image
+        run: docker pull ${{ secrets.DOCKER_USERNAME }}/htmlImage
 
